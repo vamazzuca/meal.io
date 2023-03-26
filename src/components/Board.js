@@ -1,26 +1,30 @@
-import { Link } from "react-router-dom"
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
 
-export default function Board(props) {
-    return <div className="board">
+export default function Board() {
+    return (
         <div className="sidebar">
             <div className="title">
                 <h1>Meal.io</h1>
             </div>
             <ul className="options">
-                <li className="active">
-                    <Link to="/planner">Planner</Link>
-                </li>
-                <li>
-                    <Link to="/recipes">Recipes</Link>
-                </li>
+                <CustomLink to="/planner">Planner</CustomLink>
+                <CustomLink to="/recipes">Recipes</CustomLink> 
             </ul>
         </div>
+    
+    )
+}
 
-        <div className="content">
-            <h1>{props.name}</h1>
-        </div>
 
-        
-    </div>
+function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({path: resolvedPath.pathname, end: true})
+    return (
+        <li className={isActive ? "active" : ""}>
+            <Link to={to} {...props}>
+                {children}
+            </Link>
+        </li>
+    )
 }
