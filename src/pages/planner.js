@@ -1,4 +1,5 @@
 import Board from "../components/Board"
+import Day from "../components/Day"
 
 export default function Planner() {
     return (
@@ -19,6 +20,9 @@ export default function Planner() {
                         
 
                 </div>
+
+
+                <Day />
 
             </div>
         </div>
