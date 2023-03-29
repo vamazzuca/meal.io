@@ -11,12 +11,10 @@ export default function Planner() {
         console.log(index)
     }
     
-
     const daysArr = [{ key:1, dayName: "Sunday" }, { key:2, dayName: "Monday" }, { key:3, dayName: "Tuesday" },
         { key:4, dayName: "Wednesday" }, { key: 5, dayName: "Thursday" }, { key:6, dayName: "Friday" }, { key: 7, dayName: "Saturday"}];
 
    
-
     return (
         <div className="board">
             <Board />

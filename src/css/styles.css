@@ -69,7 +69,7 @@
 .options li.active {
     text-decoration: underline;
     text-decoration-thickness: 3px;
-    text-decoration-color:rgb(80, 76, 76);;
+    text-decoration-color:rgb(80, 76, 76);
 }
 
 
@@ -82,6 +82,7 @@
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 
 }
@@ -123,16 +124,27 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    
 }
 
 .meal-plan {
+    display: flex;
+    flex-direction: column;
     background: rgba(255, 255, 255,0.7);
     width: 20rem;
     height: 25rem;
     border-radius: 1rem;
+    padding: 1rem 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 }
-
+.recipeItem{
+    margin-top: 1rem;
+    background-color: rgb(223, 218, 218);
+    border-radius: 1rem;
+    font-size: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 @media (max-width: 700px){
 
     .board{
