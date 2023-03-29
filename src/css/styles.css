@@ -94,6 +94,9 @@
     overflow: hidden;
     
 }
+.active-day{
+    background: rgb(223, 218, 218);
+}
 
 .day:hover{
     background: rgb(223, 218, 218);
@@ -104,8 +107,11 @@
     
 }
 
+.meals-inactive{
+    display: none;
+}
 
-.meals{
+.meals-active{
     margin-top: 2rem;
     display: flex;
     width: 85%;

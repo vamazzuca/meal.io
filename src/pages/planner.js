@@ -4,7 +4,7 @@ import Day from "../components/Day"
 
 export default function Planner() {
 
-    const [toggleState, setToggleState] = useState(1);
+    const [toggleState, setToggleState] = useState(0);
 
     const toggleTab = (index) => {
         setToggleState(index);
@@ -21,15 +21,14 @@ export default function Planner() {
         <div className="board">
             <Board />
             
-            <div className="content">
-                
+            <div className="content">             
                 
                 <div className="week">            
-                    {daysArr.map(day => (<DaySelector dayName={day.dayName} key={day.key} state={toggleState} callback={toggleTab} />))}
+                    {daysArr.map((day, index) => (<DaySelector index={index} dayName={day.dayName} key={day.key} state={toggleState} callback={toggleTab} />))}
                 </div>
 
 
-                <Day />
+                {daysArr.map((day, index) => (<Day index={index} state={toggleState} key={day.key} />))}
 
             </div>
         </div>
@@ -37,14 +36,12 @@ export default function Planner() {
 }
 
 
-function DaySelector(props) {
+function DaySelector({index, dayName, state, callback}) {
 
-    
-    
-    return (
-       
-        <div className="day">{props.dayName}</div>
-            
+   
+    return (    
+        <div className={state === index ? "day active-day" : "day"} onClick={() => callback(index)}>{dayName}</div>  
+        
     )
     
 }
