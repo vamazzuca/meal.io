@@ -74,7 +74,7 @@
 
 
 .week{
-    margin-top: 5rem;
+    margin-top: 3rem;
     width: 80%;
     height: 9rem;
     background: rgba(255, 255, 255,0.7);
@@ -93,6 +93,7 @@
     flex:  1 1 0px;
     justify-content: center;
     overflow: hidden;
+    cursor: pointer;
     
 }
 .active-day{
@@ -129,6 +130,8 @@
 
 .meal-plan {
     display: flex;
+    overflow: scroll;
+    justify-content: space-between;
     flex-direction: column;
     background: rgba(255, 255, 255,0.7);
     width: 20rem;
@@ -138,12 +141,23 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 }
+.add-button button{
+    float: right;
+}
+
 .recipeItem{
+    text-align: left;
     margin-top: 1rem;
     background-color: rgb(223, 218, 218);
     border-radius: 1rem;
-    font-size: 15px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.recipeItem h1 {
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 20px;
+    padding: 0.5rem;
 }
 @media (max-width: 700px){
 

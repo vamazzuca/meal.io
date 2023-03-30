@@ -1,7 +1,7 @@
 export default function RecipeItem(props) {
     return (
         <div className="recipeItem">
-            <h1>{"Item"}</h1>
+            <h1>{props.name}</h1>
         </div>
     )
 }
