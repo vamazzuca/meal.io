@@ -16,7 +16,7 @@ export default function AddNewRecipeButton(props) {
             </IconButton>
 
             <AddItemModal open={isOpen} onClose={() => setIsOpen(false)}>
-                Test
+                <p>Add a Meal Item</p>
             </AddItemModal>
         </div>
     );
