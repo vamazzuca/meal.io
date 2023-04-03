@@ -8,28 +8,21 @@ export default function AddItemModal({ open, children, onClose }) {
     return ReactDOM.createPortal(
         <>
             <div style={OVERLAY_STYLES}></div>
-            <div style={MODAL_STYLES}>
+            <div className='item-modal'>
                 <button onClick={onClose}>Close</button>
                 {children}
                 <TextField id="outlined-basic" label="Name" variant="outlined" />
+                <div className='bottomButtons'>
+                    <button>Submit Meal Item</button>
+                    <button>Select from Recipes</button>
+                </div>
             </div>
         </>,
         document.getElementById('portal')
     )
 }
 
-const MODAL_STYLES = {
-    position: "fixed",
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-20%, -70%)',
-    backgroundColor: '#FFF',
-    padding: '50px',
-    width: '25rem',
-    height: '15rem',
-    borderRadius: '1rem',
-    zIndex: 1000
-}
+
 
 const OVERLAY_STYLES = {
     position: 'fixed',

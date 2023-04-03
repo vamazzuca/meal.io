@@ -8,7 +8,6 @@ export default function Planner() {
 
     const toggleTab = (index) => {
         setToggleState(index);
-        console.log(index)
     }
     
     const daysArr = [{ key:1, dayName: "Sunday" }, { key:2, dayName: "Monday" }, { key:3, dayName: "Tuesday" },

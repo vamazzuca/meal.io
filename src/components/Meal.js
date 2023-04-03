@@ -5,6 +5,7 @@ import AddNewRecipeButton from "./AddNewRecipeButton";
 function Meal(props) {
 
     const { lists } = props;
+    let index = props.state;
     return (
         <div className="meal-container">
             <h1>{props.mealName}</h1>
