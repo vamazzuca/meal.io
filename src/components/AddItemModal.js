@@ -1,19 +1,49 @@
 import React from 'react'
+import { useState } from "react"
 import ReactDOM from 'react-dom'
 import { TextField } from '@mui/material'
+import { connect } from "react-redux";
+import { addMealItem } from '../actions';
 
-export default function AddItemModal({ open, children, onClose }) {
-    if (!open) return null
+function AddItemModal(props) {
+    const [inputState, setInputState] = useState("");
+
+
+    if (!props.open) { 
+        return null
+    } 
+
+    
+    const handleAddItem = () => {
+        const { dispatch } = props
+        const text = inputState;
+        if (text) {
+            dispatch(addMealItem(text, props.day, props.mealName,))
+            setInputState("")
+            props.onClose();
+        }
+
+        return;
+    };
+
+    const handleChange = (e) => {
+        setInputState(e.target.value)
+    }
+
+    const handleClose = (e) => {
+        handleChange(e);
+        props.onClose();
+    }
 
     return ReactDOM.createPortal(
         <>
             <div style={OVERLAY_STYLES}></div>
             <div className='item-modal'>
-                <button onClick={onClose}>Close</button>
-                {children}
-                <TextField id="outlined-basic" label="Name" variant="outlined" />
+                <button onClick={props.onClose}>Close</button>
+                {props.children}
+                <TextField type="text" id="outlined-basic" label="Name" variant="outlined" value={inputState.textVal} onChange={handleChange} />
                 <div className='bottomButtons'>
-                    <button>Submit Meal Item</button>
+                    <button onMouseDown={handleAddItem}>Submit Meal Item</button>
                     <button>Select from Recipes</button>
                 </div>
             </div>
@@ -21,6 +51,8 @@ export default function AddItemModal({ open, children, onClose }) {
         document.getElementById('portal')
     )
 }
+
+export default connect()(AddItemModal);
 
 
 

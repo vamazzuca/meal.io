@@ -4,9 +4,10 @@ import { grey} from '@mui/material/colors';
 import React, { useState } from "react";
 import AddItemModal from './AddItemModal';
 
-export default function AddNewRecipeButton(props) {
+
+export default function AddNewRecipeButton({mealName, day}) {
     
-    const { list } = props;
+    
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -15,8 +16,8 @@ export default function AddNewRecipeButton(props) {
                 <AddCircleIcon className={"button"} sx={{ color: grey[700], fontSize: 40 }}></AddCircleIcon>
             </IconButton>
 
-            <AddItemModal open={isOpen} onClose={() => setIsOpen(false)}>
-                <p>Add a Meal Item</p>
+            <AddItemModal open={isOpen} onClose={() => setIsOpen(false)} mealName={mealName} day={day}>
+                <h1>Add a Meal Item</h1>
             </AddItemModal>
         </div>
     );

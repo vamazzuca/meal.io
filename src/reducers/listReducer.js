@@ -1,3 +1,7 @@
+import { CONSTANTS } from "../actions"
+
+let itemID = 2;
+
 const initialState = [
     {
         name: "Grapes",
@@ -18,6 +22,16 @@ const initialState = [
 
 const listReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case CONSTANTS.ADD_MEAL_ITEM:
+            const newItem = {
+                name: action.name,
+                id: itemID,
+                day: action.day,
+                meal: action.meal
+            };
+            itemID += 1
+            return [...state, newItem]
         default:
             return state;
     }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Board from "../components/Board"
-import Day from "../components/Day"
+import Day from "../components/day";
 
 export default function Planner() {
 

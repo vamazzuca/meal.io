@@ -5,7 +5,6 @@ import AddNewRecipeButton from "./AddNewRecipeButton";
 function Meal(props) {
 
     const { lists } = props;
-    let index = props.state;
     return (
         <div className="meal-container">
             <h1>{props.mealName}</h1>
@@ -13,7 +12,7 @@ function Meal(props) {
                 <div className="plans">
                     {lists.map(list => (list.meal === props.mealName && list.day === props.state ? <RecipeItem name={list.name} key={ list.id} /> : null))}
                 </div>
-            <AddNewRecipeButton />
+                <AddNewRecipeButton mealName={props.mealName} day={props.state} />
             </div>
         </div>
     )
