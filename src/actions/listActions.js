@@ -8,3 +8,10 @@ export const addMealItem = (name, day, meal) => {
         meal,
     };
 }
+
+export const deleteMealItem = (listID) => {
+    return {
+        type: CONSTANTS.DELETE_MEAL_ITEM,
+        listID
+    }
+}

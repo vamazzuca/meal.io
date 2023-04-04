@@ -32,6 +32,12 @@ const listReducer = (state = initialState, action) => {
             };
             itemID += 1
             return [...state, newItem]
+        case CONSTANTS.DELETE_MEAL_ITEM:
+            const listID = action.listID
+
+            const newList = state.filter(listItem => listItem.id !== listID)
+
+            return [...newList]
         default:
             return state;
     }

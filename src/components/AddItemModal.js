@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState } from "react"
 import ReactDOM from 'react-dom'
-import { TextField } from '@mui/material'
+import { TextField, IconButton } from '@mui/material'
 import { connect } from "react-redux";
 import { addMealItem } from '../actions';
+import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined';
 
 function AddItemModal(props) {
     const [inputState, setInputState] = useState("");
@@ -30,17 +31,20 @@ function AddItemModal(props) {
         setInputState(e.target.value)
     }
 
-    const handleClose = (e) => {
-        handleChange(e);
-        props.onClose();
-    }
-
+   
     return ReactDOM.createPortal(
         <>
             <div style={OVERLAY_STYLES}></div>
             <div className='item-modal'>
-                <button onClick={props.onClose}>Close</button>
+                
+                <div className='exit-button'>
+                    <IconButton onClick={props.onClose}>
+                        <DisabledByDefaultOutlinedIcon />
+                    </IconButton>
+                </div>
+                
                 {props.children}
+                
                 <TextField type="text" id="outlined-basic" label="Name" variant="outlined" value={inputState.textVal} onChange={handleChange} />
                 <div className='bottomButtons'>
                     <button onMouseDown={handleAddItem}>Submit Meal Item</button>
