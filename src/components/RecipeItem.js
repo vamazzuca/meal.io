@@ -2,8 +2,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from '@mui/material';
 import { connect } from "react-redux";
 import { deleteMealItem } from '../actions';
+import { useState } from 'react';
+import EditItemModal from './EditItemModal';
 
 function RecipeItem(props) {
+    const [isOpen, setIsOpen] = useState(false)
 
     const handleDeleteItem = () => {
         const { dispatch } = props
@@ -12,11 +15,12 @@ function RecipeItem(props) {
     }
 
     return (
-        <div className="recipeItem">
+        <div className="recipeItem" onClick={() => setIsOpen(true)}>
             <h1>{props.name}</h1>
             <IconButton onClick={handleDeleteItem}>
                 <DeleteIcon></DeleteIcon>
             </IconButton>
+            <EditItemModal open={isOpen} onClose={() => setIsOpen(false)}/>
         </div>
     )
 }

@@ -9,6 +9,8 @@ function Meal(props) {
     useEffect(() => {
         const Elementcount = ElementRef.current.childNodes.length
     })
+
+    
     
     const { lists } = props;
     return (
@@ -20,6 +22,7 @@ function Meal(props) {
                 </div>
                 <AddNewRecipeButton mealName={props.mealName} day={props.state} />
             </div>
+
         </div>
     )
 }

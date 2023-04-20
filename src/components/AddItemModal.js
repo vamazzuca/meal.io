@@ -5,6 +5,8 @@ import { TextField, IconButton } from '@mui/material'
 import { connect } from "react-redux";
 import { addMealItem } from '../actions';
 import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined';
+import Button from '@mui/material/Button';
+
 
 function AddItemModal(props) {
     const [inputState, setInputState] = useState("");
@@ -37,18 +39,21 @@ function AddItemModal(props) {
             <div style={OVERLAY_STYLES}></div>
             <div className='item-modal'>
                 
-                <div className='exit-button'>
-                    <IconButton onClick={props.onClose}>
-                        <DisabledByDefaultOutlinedIcon />
-                    </IconButton>
+                <div className='modal-header'>
+                    <div className='exit-button'>
+                        <IconButton onClick={props.onClose}>
+                            <DisabledByDefaultOutlinedIcon />
+                        </IconButton>
+                    </div>
+                    
+                        {props.children}
+                        
                 </div>
                 
-                {props.children}
-                
                 <TextField type="text" id="outlined-basic" label="Name" variant="outlined" value={inputState.textVal} onChange={handleChange} />
-                <div className='bottomButtons'>
-                    <button onMouseDown={handleAddItem}>Submit Meal Item</button>
-                    <button>Select from Recipes</button>
+                <div className='bottom-buttons'>
+                    <Button variant="contained" onMouseDown={handleAddItem}>Submit Meal Item</Button>
+                    <Button variant="contained" onClick={props.onClose}>Select from Recipes</Button>
                 </div>
             </div>
         </>,
