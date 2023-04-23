@@ -21,7 +21,7 @@ function AddItemModal(props) {
         const { dispatch } = props
         const text = inputState;
         if (text) {
-            dispatch(addMealItem(text, props.day, props.mealName,))
+            dispatch(addMealItem(text, props.day, props.mealName, "", "", ""))
             setInputState("")
             props.onClose();
         }

@@ -240,6 +240,7 @@
     border-radius: 1rem;
     font-size: 22px;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .edit-text-box {
@@ -250,6 +251,7 @@
     padding: 0.5rem;
     font-size: 22px;
     min-height: 10rem;
+    cursor: pointer;
 }
 
 

@@ -20,7 +20,8 @@ function RecipeItem(props) {
             <IconButton onClick={handleDeleteItem}>
                 <DeleteIcon></DeleteIcon>
             </IconButton>
-            <EditItemModal open={isOpen} onClose={() => setIsOpen(false)}/>
+            <EditItemModal open={isOpen} onClose={() => setIsOpen(false)} name={props.name} listID={props.listID}
+                description={props.description} ingredients={props.ingredients} instructions={props.instructions} />
         </div>
     )
 }
