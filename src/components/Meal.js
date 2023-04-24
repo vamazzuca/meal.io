@@ -22,7 +22,7 @@ function Meal(props) {
                         ? <RecipeItem name={list.name} key={list.id} listID={list.id} description={list.description } ingredients={list.ingredients } instructions={ list.instructions} />
                         : null))}
                 </div>
-                <AddNewRecipeButton mealName={props.mealName} day={props.state} size={40} isInRecipeList={true} />
+                <AddNewRecipeButton mealName={props.mealName} day={props.state} size={40} isInRecipeList={false} />
             </div>
 
         </div>

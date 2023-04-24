@@ -154,7 +154,8 @@ function TextBox(props) {
                     fontSize: "22px",
                     overflow: "hidden",
                     background: "rgb(175, 171, 171)",
-                    fontFamily: "Roboto"
+                    fontFamily: "Roboto",
+                    whiteSpace: "pre-wrap"
                 }} />
         </div>
     )

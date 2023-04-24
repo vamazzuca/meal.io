@@ -10,7 +10,8 @@ const initialState = [
         meal: "Breakfast",
         description: "",
         ingredients: "",
-        instructions: ""
+        instructions: "",
+        isInRecipeList: false
 
     },
     {
@@ -20,7 +21,8 @@ const initialState = [
         meal: "Breakfast",
         description: "",
         ingredients: "",
-        instructions: ""
+        instructions: "",
+        isInRecipeList: false
 
     }
 
@@ -37,7 +39,8 @@ const listReducer = (state = initialState, action) => {
                 meal: action.meal,
                 description: action.description,
                 ingredients: action.ingredients,
-                instructions: action.instructions
+                instructions: action.instructions,
+                isInRecipeList: action.isInRecipeList
             };
             itemID += 1
             return [...state, newItem]

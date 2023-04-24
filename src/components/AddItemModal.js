@@ -21,7 +21,7 @@ function AddItemModal(props) {
         const { dispatch } = props
         const text = inputState;
         if (text) {
-            dispatch(addMealItem(text, props.day, props.mealName, "", "", ""))
+            dispatch(addMealItem(text, props.day, props.mealName, "", "", "", props.isInRecipeList))
             setInputState("")
             props.onClose();
         }
@@ -53,7 +53,7 @@ function AddItemModal(props) {
                 <TextField type="text" id="outlined-basic" label="Name" variant="outlined" value={inputState.textVal} onChange={handleChange} />
                 <div className='bottom-buttons'>
                     <Button variant="contained" onMouseDown={handleAddItem}>Submit Meal Item</Button>
-                    {props.isInRecipeList === true ? <Button variant="contained" onClick={props.onClose}>Select from Recipes</Button> : null}
+                    {props.isInRecipeList === false ? <Button variant="contained" onClick={props.onClose}>Select from Recipes</Button> : null}
                 </div>
             </div>
         </>,

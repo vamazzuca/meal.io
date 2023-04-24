@@ -1,6 +1,6 @@
 import { CONSTANTS } from "../actions";
 
-export const addMealItem = (name, day, meal,description, ingredients, instructions ) => {
+export const addMealItem = (name, day, meal,description, ingredients, instructions, isInRecipeList ) => {
     return {
         type: CONSTANTS.ADD_MEAL_ITEM,
         name,
@@ -8,7 +8,8 @@ export const addMealItem = (name, day, meal,description, ingredients, instructio
         meal,
         description,
         ingredients,
-        instructions
+        instructions,
+        isInRecipeList
     };
 }
 
