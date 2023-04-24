@@ -57,6 +57,30 @@ const listReducer = (state = initialState, action) => {
             list.name = newTitle
             return [ ...state];
         }
+        case CONSTANTS.EDIT_MEAL_DESCRIPTION: {
+            const listID = action.listID
+            const newDescription = action.newDescription
+
+            const list = state.find((listItem => listItem.id === listID))
+            list.description = newDescription
+            return [ ...state];
+        }
+        case CONSTANTS.EDIT_MEAL_INSTRUCTIONS: {
+            const listID = action.listID
+            const newInstructions = action.newInstructions
+
+            const list = state.find((listItem => listItem.id === listID))
+            list.instructions = newInstructions
+            return [ ...state];
+        }
+        case CONSTANTS.EDIT_MEAL_INGREDIENTS: {
+            const listID = action.listID
+            const newIngredients = action.newIngredients
+
+            const list = state.find((listItem => listItem.id === listID))
+            list.ingredients = newIngredients
+            return [ ...state];
+        }
         default:
             return state;
     }

@@ -28,11 +28,11 @@ export const editMealDescription = (listID, newDescription) => {
     }
 }
 
-export const editMealIngredients = (listID, newIngredeients) => {
+export const editMealIngredients = (listID, newIngredients) => {
     return {
         type: CONSTANTS.EDIT_MEAL_INGREDIENTS,
         listID,
-        newIngredeients
+        newIngredients
     }
 }
 

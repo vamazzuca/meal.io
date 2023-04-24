@@ -7,19 +7,20 @@ import React from 'react'
 import { connect } from "react-redux";
 import Button from '@mui/material/Button';
 import ClearIcon from '@mui/icons-material/Clear';
-import { editMealTitle } from '../actions';
+import { editMealTitle, editMealDescription, editMealInstructions, editMealIngredients } from '../actions';
 
 function EditItemModal(props) {
 
     const [formOpen, setFormOpen] = useState(false)
     const [saveState, setSaveState] = useState(props.name)
 
+    const { dispatch } = props
+
     const openForm = () => {
         setFormOpen(true)
     }
     
     const handleEditItem = (e) => {
-        const { dispatch } = props
         const text = saveState;
         if (text) {
             dispatch(editMealTitle(props.listID, text))
@@ -60,17 +61,17 @@ function EditItemModal(props) {
                     </div>
                     <div>
                         {formOpen === true ? <Button variant="contained" onClick={handleEditItem}>Save</Button>: null}
-                        {formOpen === true ? <IconButton onMouseUp={closeForm}><ClearIcon fontSize="large" /></IconButton> : null}
+                        {formOpen === true ? <IconButton onMouseUp={closeForm}><ClearIcon fontSize={"large"} /></IconButton> : null}
                     </div>
                 </div>
 
                 <div className='edit-body'>
 
-                    <EditBody title={"Description"} text={props.description} />
+                    <EditBody title={"Description"} text={props.description} listID={props.listID} dispatch={dispatch} />
 
-                    <EditBody title={"Ingredients"} text={props.ingredients} />
+                    <EditBody title={"Ingredients"} text={props.ingredients} listID={props.listID} dispatch={dispatch} />
 
-                    <EditBody title={"Instructions"} text={props.instructions} />
+                    <EditBody title={"Instructions"} text={props.instructions} listID={props.listID} dispatch={dispatch} />
 
                     
                 </div>
@@ -93,17 +94,34 @@ function EditBody(props) {
         setFormOpen(false)
     }
 
+    const handleEditItem = (e) => {
+        const text = saveState;
+        
+        if (props.title === "Description") {
+            props.dispatch(editMealDescription(props.listID, text))
+        } else if (props.title === "Ingredients") {
+            props.dispatch(editMealIngredients(props.listID, text))
+        } else if (props.title === "Instructions") {
+            props.dispatch(editMealInstructions(props.listID, text))
+        }
+        
+        closeForm(e)
+        
+
+        return;
+    };
+
 
     return (
         <div>
             <h1>{props.title}</h1>
             <div className='edit-text-box' onClick={openForm}>
-                {formOpen === false ? props.text : <TextBox text={props.text} closeForm={closeForm} setSaveState={setSaveState} />}
+                {formOpen === false ? props.text : <TextBox text={props.text} closeForm={closeForm} handleChangeSave={setSaveState} />}
             </div>
 
 
             <div>
-                {formOpen === true ? <Button variant="contained" onClick={closeForm}>Save</Button> : null}
+                {formOpen === true ? <Button variant="contained" onClick={handleEditItem}>Save</Button> : null}
                 {formOpen === true ? <IconButton onMouseUp={closeForm}><ClearIcon fontSize="large" /></IconButton> : null}
             </div>
         </div>
