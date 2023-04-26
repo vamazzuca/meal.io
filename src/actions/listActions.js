@@ -53,3 +53,4 @@ export const editMealTitle = (listID, newTitle) => {
         newTitle
     }
 }
+

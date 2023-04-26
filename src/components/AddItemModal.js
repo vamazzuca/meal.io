@@ -6,10 +6,12 @@ import { connect } from "react-redux";
 import { addMealItem } from '../actions';
 import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined';
 import Button from '@mui/material/Button';
+import SelectRecipeModal from './SelectRecipeModal';
 
 
 function AddItemModal(props) {
     const [inputState, setInputState] = useState("");
+    const [isOpenSelect, setIsOpenSelect] = useState(false)
 
 
     if (!props.open) { 
@@ -33,6 +35,7 @@ function AddItemModal(props) {
         setInputState(e.target.value)
     }
 
+
    
     return ReactDOM.createPortal(
         <>
@@ -52,14 +55,18 @@ function AddItemModal(props) {
                 
                 <TextField type="text" id="outlined-basic" label="Name" variant="outlined" value={inputState.textVal} onChange={handleChange} />
                 <div className='bottom-buttons'>
-                    <Button variant="contained" onMouseDown={handleAddItem}>Submit Meal Item</Button>
-                    {props.isInRecipeList === false ? <Button variant="contained" onClick={props.onClose}>Select from Recipes</Button> : null}
+                    <Button variant="contained" onMouseDown={handleAddItem}>Submit Recipe</Button>
+                    {props.isInRecipeList === false ? <Button variant="contained" onClick={() => setIsOpenSelect(true) }>Select from Recipes</Button> : null}
                 </div>
+
             </div>
+
+            <div><SelectRecipeModal open={isOpenSelect} onClose={() => { setIsOpenSelect(false); props.onClose(); }} day={props.day} mealName={props.mealName} /></div>
         </>,
         document.getElementById('portal')
     )
 }
+
 
 export default connect()(AddItemModal);
 

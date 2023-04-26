@@ -15,7 +15,7 @@ function RecipeItem(props) {
     }
 
     return (
-        <div className="recipeItem" onClick={() => setIsOpen(true)}>
+        <div className={props.isInRecipeList === false ? "recipeItem": "recipeItemList"}  onClick={() => setIsOpen(true)}>
             <h1>{props.name}</h1>
             <IconButton onClick={handleDeleteItem}>
                 <DeleteIcon></DeleteIcon>

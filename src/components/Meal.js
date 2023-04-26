@@ -19,7 +19,7 @@ function Meal(props) {
             <div className="meal-plan">
                 <div className="plans" ref={ElementRef}>
                     {lists.map(list => (list.meal === props.mealName && list.day === props.state
-                        ? <RecipeItem name={list.name} key={list.id} listID={list.id} description={list.description } ingredients={list.ingredients } instructions={ list.instructions} />
+                        ? <RecipeItem name={list.name} key={list.id} listID={list.id} description={list.description } ingredients={list.ingredients } instructions={ list.instructions} isInRecipeList={false}/>
                         : null))}
                 </div>
                 <AddNewRecipeButton mealName={props.mealName} day={props.state} size={40} isInRecipeList={false} />

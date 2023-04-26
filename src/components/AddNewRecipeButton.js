@@ -17,7 +17,7 @@ export default function AddNewRecipeButton({mealName, day, size, isInRecipeList}
             </IconButton>
 
             <AddItemModal open={isOpen} onClose={() => setIsOpen(false)} mealName={mealName} day={day} isInRecipeList={isInRecipeList}>
-                <h1>Add a Meal Item</h1>
+                <h1>Add a Recipe</h1>
             </AddItemModal>
         </div>
     );
