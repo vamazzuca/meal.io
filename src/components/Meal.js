@@ -4,10 +4,10 @@ import { useRef, useEffect } from "react"
 import AddNewRecipeButton from "./AddNewRecipeButton";
 
 function Meal(props) {
-    const ElementRef = useRef(null)
+    const ElementRef = useRef(0)
 
     useEffect(() => {
-        const Elementcount = ElementRef.current.childNodes.length
+        props.getCount(ElementRef.current.childNodes.length)
     })
 
     
