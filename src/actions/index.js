@@ -1,4 +1,5 @@
 export * from "./listActions"
+export * from "./countActions"
 
 export const CONSTANTS = {
     ADD_MEAL_ITEM: "ADD_MEAL_ITEM",
@@ -7,5 +8,7 @@ export const CONSTANTS = {
     EDIT_MEAL_DESCRIPTION: "EDIT_MEAL_DESCRIPTION",
     EDIT_MEAL_INGREDIENTS: "EDIT_MEAL_INGREDIENTS",
     EDIT_MEAL_INSTRUCTIONS: "EDIT_MEAL_INSTRUCTIONS",
+    ADD_COUNT: "ADD_COUNT",
+    SUB_COUNT: "SUB_COUNT"
 };
 

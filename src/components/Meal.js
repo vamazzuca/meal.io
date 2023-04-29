@@ -1,18 +1,20 @@
 import RecipeItem from "./RecipeItem"
 import { connect } from "react-redux"
-import { useRef, useEffect } from "react"
+import { useRef, useEffect} from "react"
 import AddNewRecipeButton from "./AddNewRecipeButton";
 
 function Meal(props) {
     const ElementRef = useRef(0)
+    const { lists, getCount, state } = props;
+
+    
 
     useEffect(() => {
-        props.getCount(ElementRef.current.childNodes.length)
-    })
+        getCount(ElementRef.current.childNodes.length, state)
+    });
 
     
     
-    const { lists } = props;
     return (
         <div className="meal-container">
             <h1>{props.mealName}</h1>
