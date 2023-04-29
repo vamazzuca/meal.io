@@ -1,27 +1,29 @@
 import RecipeItem from "./RecipeItem"
 import { connect } from "react-redux"
-import { useRef, useEffect} from "react"
 import AddNewRecipeButton from "./AddNewRecipeButton";
 
 function Meal(props) {
-    const ElementRef = useRef(0)
-    const { lists, getCount, state } = props;
-
     
+    const { lists } = props;
 
-    useEffect(() => {
-        getCount(ElementRef.current.childNodes.length, state)
-    });
-
-    
     
     return (
         <div className="meal-container">
             <h1>{props.mealName}</h1>
             <div className="meal-plan">
-                <div className="plans" ref={ElementRef}>
+                <div className="plans">
                     {lists.map(list => (list.meal === props.mealName && list.day === props.state
-                        ? <RecipeItem name={list.name} key={list.id} listID={list.id} description={list.description } ingredients={list.ingredients } instructions={ list.instructions} isInRecipeList={false}/>
+                        ? <RecipeItem
+                            name={list.name}
+                            key={list.id}
+                            listID={list.id}
+                            description={list.description}
+                            ingredients={list.ingredients}
+                            instructions={list.instructions}
+                            isInRecipeList={false}
+                            day={props.state}
+                            mealName = {props.mealName}
+                        />
                         : null))}
                 </div>
                 <AddNewRecipeButton mealName={props.mealName} day={props.state} size={40} isInRecipeList={false} />

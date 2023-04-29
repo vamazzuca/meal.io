@@ -3,7 +3,7 @@ import { CONSTANTS } from "../actions"
 
 const initialState = [
     {
-        name: "Sunday",
+        day: 0,
         id: 0,
         breakfastCount: 2,
         lunchCount: 0,
@@ -11,7 +11,7 @@ const initialState = [
 
     },
     {
-        name: "Monday",
+        day: 1,
         id: 1,
         breakfastCount: 0,
         lunchCount: 0,
@@ -19,7 +19,7 @@ const initialState = [
 
     },
     {
-        name: "Tuesday",
+        day: 2,
         id: 2,
         breakfastCount: 0,
         lunchCount: 0,
@@ -27,7 +27,7 @@ const initialState = [
 
     },
     {
-        name: "Wednesday",
+        day: 3,
         id: 3,
         breakfastCount: 0,
         lunchCount: 0,
@@ -35,7 +35,7 @@ const initialState = [
 
     },
     {
-        name: "Thursday",
+        day: 4,
         id: 4,
         breakfastCount: 0,
         lunchCount: 0,
@@ -43,7 +43,7 @@ const initialState = [
 
     },
     {
-        name: "Friday",
+        day: 5,
         id: 5,
         breakfastCount: 0,
         lunchCount: 0,
@@ -51,7 +51,7 @@ const initialState = [
 
     },
     {
-        name: "Saturday",
+        day: 6,
         id: 6,
         breakfastCount: 0,
         lunchCount: 0,
@@ -71,7 +71,7 @@ const countReducer = (state = initialState, action) => {
             const num = action.num;
 
 
-            const count = state.find((listItem => listItem.name === day))
+            const count = state.find((listItem => listItem.day === day))
 
             if (name === "Breakfast") {
                 count.breakfastCount = count.breakfastCount + num;
@@ -91,7 +91,7 @@ const countReducer = (state = initialState, action) => {
             const num = action.num;
 
 
-            const count = state.find((listItem => listItem.name === day))
+            const count = state.find((listItem => listItem.day === day))
 
             if (name === "Breakfast") {
                 count.breakfastCount = count.breakfastCount - num;

@@ -1,7 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from '@mui/material';
 import { connect } from "react-redux";
-import { deleteMealItem } from '../actions';
+import { deleteMealItem, subCount } from '../actions';
 import { useState } from 'react';
 import EditItemModal from './EditItemModal';
 
@@ -12,6 +12,7 @@ function RecipeItem(props) {
         const { dispatch } = props
 
         dispatch(deleteMealItem(props.listID))
+        dispatch(subCount(props.mealName, props.day, 1));
     }
 
     return (

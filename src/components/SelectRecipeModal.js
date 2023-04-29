@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { IconButton } from '@mui/material'
 import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined';
 import ReactDOM from 'react-dom'
-import { addMealItem } from '../actions';
+import { addCount, addMealItem } from '../actions';
 
 function SelectRecipeModal(props) {
     
@@ -56,6 +56,7 @@ function SelectRecipe(props) {
     const handleAddItem = () => {
         props.exit();
         props.dispatch(addMealItem(props.recipeName, props.day, props.mealName, props.description, props.ingredients, props.instructions, false));
+        props.dispatch(addCount(props.mealName, props.day, 1))
     }
 
     return (

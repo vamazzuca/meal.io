@@ -3,7 +3,7 @@ import { useState } from "react"
 import ReactDOM from 'react-dom'
 import { TextField, IconButton } from '@mui/material'
 import { connect } from "react-redux";
-import { addMealItem } from '../actions';
+import { addCount, addMealItem } from '../actions';
 import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined';
 import Button from '@mui/material/Button';
 import SelectRecipeModal from './SelectRecipeModal';
@@ -11,20 +11,21 @@ import SelectRecipeModal from './SelectRecipeModal';
 
 function AddItemModal(props) {
     const [inputState, setInputState] = useState("");
-    const [isOpenSelect, setIsOpenSelect] = useState(false)
+    const [isOpenSelect, setIsOpenSelect] = useState(false);
 
 
     if (!props.open) { 
-        return null
+        return null;
     } 
 
     
     const handleAddItem = () => {
-        const { dispatch } = props
+        const { dispatch } = props;
         const text = inputState;
         if (text) {
-            dispatch(addMealItem(text, props.day, props.mealName, "", "", "", props.isInRecipeList))
-            setInputState("")
+            dispatch(addMealItem(text, props.day, props.mealName, "", "", "", props.isInRecipeList));
+            dispatch(addCount(props.mealName, props.day, 1));
+            setInputState("");
             props.onClose();
         }
 
@@ -32,7 +33,7 @@ function AddItemModal(props) {
     };
 
     const handleChange = (e) => {
-        setInputState(e.target.value)
+        setInputState(e.target.value);
     }
 
 

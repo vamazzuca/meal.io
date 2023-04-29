@@ -1,15 +1,14 @@
 import { useState } from "react"
 import Board from "../components/Board"
-import Day from "../components/day";
+import Day from "../components/day"
+import { connect } from "react-redux"
 
-export default function Planner() {
+function Planner(props) {
 
     const [toggleState, setToggleState] = useState(0);
-    const [breakfastCount, setbreakfastCount] = useState("0,0,0,0,0,0,0");
-    const [lunchCount, setLunchCount] = useState("0,0,0,0,0,0,0");
-    const [dinnerCount, setDinnerCount] = useState("0,0,0,0,0,0,0");
 
-
+    const { counts } = props;
+    
     const daysArr = [
         { key: 1, dayName: "Sunday"},
         { key: 2, dayName: "Monday"},
@@ -27,36 +26,9 @@ export default function Planner() {
     }
 
 
-    const getBreakfastCount = (data, day) => {
 
-        let countArr = breakfastCount.split(",");
-        countArr[day] = data;
-        let countStr = countArr.toString();
-        setbreakfastCount(countStr);
-        
-        
-    }
 
-    const getLunchCount = (data, day) => {
-        let countArr = lunchCount.split(",");
-        countArr[day] = data;
-        let countStr = countArr.toString();
-        setLunchCount(countStr);
-    }
 
-    const getDinnerCount = (data, day) => {
-        let countArr = dinnerCount.split(",");
-        countArr[day] = data;
-        let countStr = countArr.toString();
-        setDinnerCount(countStr);
-    }
-    
-    const getCountNum = (index, state) => {
-        let countArr= state.split(","); 
-        return countArr[index]
-    }
-
-   
     return (
         <div className="board">
             <Board />
@@ -71,9 +43,8 @@ export default function Planner() {
                         key={day.key}
                         state={toggleState}
                         callback={toggleTab}
-                        breakfastCount={getCountNum(index, breakfastCount)}
-                        lunchCount={getCountNum(index, lunchCount)}
-                        dinnerCount = {getCountNum(index, dinnerCount)}
+                        counts={counts}
+                        
                     />))}
                 </div>
 
@@ -83,9 +54,6 @@ export default function Planner() {
                     index={index}
                     state={toggleState}
                     key={day.key}
-                    getBreakfastCount={getBreakfastCount}
-                    getLunchCount={getLunchCount}
-                    getDinnerCount = {getDinnerCount}
                 />))}
 
             </div>
@@ -94,20 +62,27 @@ export default function Planner() {
 }
 
 
-function DaySelector({ index, dayName, state, callback, breakfastCount, lunchCount, dinnerCount }) {
-    
+function DaySelector({ index, dayName, state, callback, counts}) {
+
+    const day = counts.find((listItem => listItem.day === index))
     
     const checkmark = "\u2713"
     return (    
         <div className={state === index ? "day active-day" : "day"} onClick={() => callback(index)}>
             {dayName}
             <div className="day-icons">
-                <div className={breakfastCount > 0 ? "number-circle-check" : "number-circle"}>{breakfastCount > 0 ? checkmark : "B"}</div>          
-                <div className={lunchCount > 0 ? "number-circle-check" : "number-circle"}>{lunchCount > 0 ? checkmark : "L"}</div>
-                <div className={dinnerCount > 0 ? "number-circle-check" : "number-circle"}>{dinnerCount > 0 ? checkmark : "D"}</div>
+                <div className={day.breakfastCount > 0 ? "number-circle-check" : "number-circle"}>{day.breakfastCount > 0 ? checkmark : "B"}</div>          
+                <div className={day.lunchCount > 0 ? "number-circle-check" : "number-circle"}>{day.lunchCount > 0 ? checkmark : "L"}</div>
+                <div className={day.dinnerCount > 0 ? "number-circle-check" : "number-circle"}>{day.dinnerCount > 0 ? checkmark : "D"}</div>
             </div>
         </div>  
         
     )
     
 }
+
+const mapStateToProps = state => ({
+    counts: state.counts
+})
+
+export default connect(mapStateToProps)(Planner);
