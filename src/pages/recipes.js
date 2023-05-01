@@ -1,7 +1,8 @@
-import Board from "../components/Board"
+
 import AddNewRecipeButton from "../components/AddNewRecipeButton"
 import { connect } from "react-redux"
 import RecipeItem from "../components/RecipeItem"
+import Navbar from "../components/NavBar";
 
 function Recipes(props) {
 
@@ -9,7 +10,7 @@ function Recipes(props) {
     const { lists } = props;
     return (
         <div className="board">
-            <Board />
+            <Navbar />
             <div className="recipe-content">
                 <div className="recipe-container">
                     <div className="recipes">

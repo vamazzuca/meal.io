@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Board from "../components/Board"
 import Day from "../components/day"
 import { connect } from "react-redux"
+import Navbar from "../components/NavBar";
 
 function Planner(props) {
 
@@ -31,7 +31,7 @@ function Planner(props) {
 
     return (
         <div className="board">
-            <Board />
+            <Navbar />
             
             <div className="content">             
                 

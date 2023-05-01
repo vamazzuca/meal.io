@@ -20,7 +20,7 @@
 .board{
     background: white;
     min-height: 80vh;
-    width: 85%;
+    width: 85vw;
     background: linear-gradient(to right bottom, rgba(255, 255, 255,0.7), rgba(255, 255, 255,0.3));
     border-radius: 2rem;
     display: flex;
@@ -33,6 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     min-width: 13rem;
 }
 
@@ -85,7 +86,7 @@
 .week{
     margin-top: 3rem;
     width: 80%;
-    height: 9rem;
+    min-height: 9rem;
     background: linear-gradient(to right bottom, rgba(255, 255, 255,0.7), rgba(255, 255, 255,0.3));
     border-radius: 1rem;
     display: flex;
@@ -130,6 +131,7 @@
     margin-top: 2rem;
     display: flex;
     width: 85%;
+    gap: 1rem;
     justify-content: space-between;
     overflow: scroll;
 }
@@ -322,10 +324,21 @@
 
     .board{
         width: 100vw;
-    }
-    .content{
         height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+
+    }
+
+    .body{
+        height: 100vh;
+        display: flex;
+    }
+
+    .content{
         width: 100vw;
+        display: flex;
     }
 
     .recipe-content {
@@ -333,9 +346,25 @@
         width: 100vw;
     }
 
+    .meals-active {
+
+        flex-direction: column;
+        align-items: center;
+    }
+
     .sidebar {
-        width: 100%;
-        display: none;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+       height: 15vh;
+       min-width: 100vw;
+       display: flex;
+       padding: 2rem;
+    }
+
+    
+    .options{
+        flex-direction: row;
     }
 
     .day {
@@ -347,12 +376,60 @@
         left: 28%;
     }
 
+    .title {
+        padding: 2px 2px;
+        margin-top: 0rem;
+        font-size: 25px;
+        
+        
+    }
+    
+    .options a{
+        font-size: 25px;
+        color: rgb(80, 76, 76);
+        text-decoration: none;
+        display: inline;
+        
+    }
+    
+    .options li{
+        margin-top: 0rem;
+        display: inline;
+        margin-right: 15px;
+        
+    }
+
+    
+
 
     
 }
 
+@media (max-width: 1720px){
+
+    .meals-active {
+
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content{
+        height: 100vh;
+    }
+
+    .recipe-content {
+        height: 100vh;
+    }
+
+    .body{
+        height: none;
+    }
+
+    .sidebar{
+        width: 20%;
+    }
 
 
-
+}
 
 
