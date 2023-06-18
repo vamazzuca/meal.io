@@ -136,6 +136,10 @@
     overflow: scroll;
 }
 
+.meals-active h1 {
+    color: rgb(80, 76, 76);
+}
+
 .meal-container {
     display: flex;
     flex-direction: column;
@@ -211,12 +215,17 @@
 
 .item-modal h1{
     margin-top: 1rem;
+    color: rgb(80, 76, 76);
 }
 
 .bottom-buttons {
     display: flex;
     gap: 0.5rem;
     padding: 1rem 0;
+}
+
+.bottom-buttons button {
+    background-color: rgb(80, 76, 76);
 }
 
 .exit-button{
@@ -285,7 +294,7 @@
 
 .recipe-container{
     display: flex;
-    height: 40rem;
+    height: 100%;
     width: 100%;
     background: linear-gradient(to right bottom, rgba(255, 255, 255,0.7), rgba(255, 255, 255,0.3));
     border-radius: 2rem;
@@ -320,6 +329,18 @@
 }
 
 
+@media (max-width: 1500px){
+    .day-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .number-circle, .number-circle-check{
+        margin-bottom: 0;
+    }
+}
+
 @media (max-width: 700px){
 
     .board{
@@ -344,6 +365,7 @@
     .recipe-content {
         height: 100vh;
         width: 100vw;
+        
     }
 
     .meals-active {
@@ -351,6 +373,7 @@
         flex-direction: column;
         align-items: center;
     }
+
 
     .sidebar {
        flex-direction: row;
