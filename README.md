@@ -6,11 +6,11 @@ Decription
 • Frontend built with React, React Redux, vanilla CSS, and used Material UI for icons and button styling.  
 • Implemented React Redux in order to store and share recipe data across components.
 
-Tech Stack
-• React
-• JavaScript
-• CSS
-• React Redux
+Tech Stack  
+• React  
+• JavaScript  
+• CSS  
+• React Redux  
 
 Video Demo
 
