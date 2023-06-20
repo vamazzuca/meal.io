@@ -1,32 +1,8 @@
 import { CONSTANTS } from "../actions"
 
-let itemID = 2;
+let itemID = 0;
 
-const initialState = [
-    {
-        name: "Grapes",
-        id: 0,
-        day: 0,
-        meal: "Breakfast",
-        description: "",
-        ingredients: "",
-        instructions: "",
-        isInRecipeList: false
-
-    },
-    {
-        name: "Oranges",
-        id: 1,
-        day: 0,
-        meal: "Breakfast",
-        description: "",
-        ingredients: "",
-        instructions: "",
-        isInRecipeList: false
-
-    }
-
-]
+const initialState = []
 
 const listReducer = (state = initialState, action) => {
     switch (action.type) {

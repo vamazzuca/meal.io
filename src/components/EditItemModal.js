@@ -121,7 +121,7 @@ function EditBody(props) {
 
 
             <div>
-                {formOpen === true ? <Button variant="contained" onClick={handleEditItem}>Save</Button> : null}
+                {formOpen === true ? <Button style={ {backgroundColor: "rgb(80, 76, 76)"}} variant="contained" onClick={handleEditItem}>Save</Button> : null}
                 {formOpen === true ? <IconButton onMouseUp={closeForm}><ClearIcon fontSize="large" /></IconButton> : null}
             </div>
         </div>

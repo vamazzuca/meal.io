@@ -5,7 +5,7 @@ const initialState = [
     {
         day: 0,
         id: 0,
-        breakfastCount: 2,
+        breakfastCount: 0,
         lunchCount: 0,
         dinnerCount: 0
 

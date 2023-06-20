@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Day from "../components/day"
+import Meal from "../components/Meal";
 import { connect } from "react-redux"
 import Navbar from "../components/NavBar";
 
@@ -79,6 +79,16 @@ function DaySelector({ index, dayName, state, callback, counts}) {
         
     )
     
+}
+
+function Day({index, state}) {
+    return (
+        <div className={state === index ? "meals-active" : "meals-inactive"}>
+            <Meal mealName={"Breakfast"} state={state}   />
+            <Meal mealName={"Lunch"} state={state}  />
+            <Meal mealName = {"Dinner"} state={state} />
+        </div>
+    )
 }
 
 const mapStateToProps = state => ({
