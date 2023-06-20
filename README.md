@@ -1,10 +1,12 @@
-Meal.io
+# Meal.io
 
-Decription
+Decription  
 • A frontend web project for weekly meal planning and recipe storage.  
 • Users can add, edit and delete their favorite recipes and plan out their meals for the week using this simple web application.  
 • Frontend built with React, React Redux, vanilla CSS, and used Material UI for icons and button styling.  
-• Implemented React Redux in order to store and share recipe data across components.  
+• Implemented React Redux in order to store and share recipe data across components. 
+
+Video Demo
 
 Images
 
